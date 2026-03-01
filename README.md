@@ -22,12 +22,20 @@ python3 file_manager.py
 ```
 
 ### 3. **DDoS & Stress Testing Tools**
-- **Advanced Flooder:**
+- **Buddy Ultra Flooder (Hardcoded):**
+  Automatically targets hardcoded IPs and URLs (FUDutsinma & 102.91.68.102).
+  ```bash
+  python3 missions/advanced_flooder/buddy_ultra_flooder.py
+  ```
+- **Advanced Ultra Flooder (Interactive + Scan):**
+  Asks for a target, scans for heavy resources (images/PDFs), and hammers them.
+  ```bash
+  python3 missions/advanced_flooder/advanced_ultra_flooder.py
+  ```
+- **Standard Flooder:**
   ```bash
   cd missions/advanced_flooder
   python3 flooder.py --target [IP] --port [PORT]
-  # OR use the automated scripts
-  ./launch.sh
   ```
 - **Buddy Flood:**
   ```bash
