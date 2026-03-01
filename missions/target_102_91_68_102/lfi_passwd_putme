@@ -1,0 +1,36 @@
+<!--
+To change this template, choose Tools | Templates
+and open the template in the editor.
+-->
+<!DOCTYPE html>
+<html>
+    <head>
+        <title>PUTME SCREENING - Admin Panel</title>
+        <meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
+    </head>
+    <body bgcolor="#CCCCFF">
+	<center>
+    <img src="../images/logo-front.png" />
+<h3>ADMIN PANEL</h3>
+
+<div  align="center" style="background-position:center; background-color:#CCC; float:inherit; border:outset; width: 50%; overflow: auto; vertical-align: middle;">
+   <p align="center" style="text-shadow:#CCC; color:#F00"><b></b></p>
+    <form id="frmUser" name="frmUser" method="post" action="/putme/administrator/login.php">
+    <label>Username: *
+      <input name="username" type="text" id="username" size="35" maxlength="40" value="" />
+    </label>
+    <br /><br />
+     <label>Password: *&nbsp;
+      <input name="password" type="password" id="password" size="35" maxlength="16"/>
+    </label>
+    <br /><br />
+    <input type="submit" name="submit" id="submit" value=" LOGIN " /> 
+      &nbsp;&nbsp;
+    </form>  
+	<BR />
+</div>
+<p>&nbsp;</p>
+<p>&copy; 2026,  Federal University Dutsinma. All rights reserved.</p>
+</center>
+         </body>
+</html>

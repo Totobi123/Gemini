@@ -1,0 +1,120 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Web File Manager (YOLO MODE)</title>
+    <style>
+        body { font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif; background-color: #f4f4f9; color: #333; margin: 0; padding: 20px; }
+        .container { max-width: 1000px; margin: 0 auto; background: white; padding: 20px; border-radius: 8px; box-shadow: 0 2px 10px rgba(0,0,0,0.1); }
+        h1 { color: #2c3e50; margin-bottom: 10px; }
+        .breadcrumb { margin-bottom: 20px; font-size: 1.1em; color: #7f8c8d; }
+        .breadcrumb a { color: #3498db; text-decoration: none; font-weight: bold; }
+        .breadcrumb a:hover { text-decoration: underline; }
+        .actions { margin-bottom: 20px; display: flex; gap: 10px; flex-wrap: wrap; background: #ecf0f1; padding: 15px; border-radius: 6px; }
+        .actions input, .actions button { padding: 8px 12px; border: 1px solid #ddd; border-radius: 4px; }
+        .actions button { cursor: pointer; background-color: #3498db; color: white; border: none; transition: background 0.3s; }
+        .actions button:hover { background-color: #2980b9; }
+        .btn-delete { background-color: #e74c3c !important; }
+        .btn-delete:hover { background-color: #c0392b !important; }
+        table { width: 100%; border-collapse: collapse; margin-top: 10px; }
+        th, td { padding: 12px; text-align: left; border-bottom: 1px solid #eee; }
+        th { background-color: #f8f9fa; }
+        .icon { width: 20px; margin-right: 8px; vertical-align: middle; }
+        .folder { font-weight: bold; color: #f39c12; }
+        .file { color: #34495e; }
+        .rename-input { padding: 4px; border: 1px solid #ccc; border-radius: 3px; width: 120px; }
+        a { text-decoration: none; color: inherit; }
+        a:hover { color: #2980b9; }
+    </style>
+</head>
+<body>
+    <div class="container">
+        <h1>📁 Web File Manager (YOLO MODE)</h1>
+        
+        <div class="breadcrumb">
+            <a href="/">Home</a> 
+            {% for b in breadcrumbs %}
+                / <a href="/?path={{ b.path }}">{{ b.name }}</a>
+            {% endfor %}
+        </div>
+
+        <div class="actions">
+            <form action="/upload" method="post" enctype="multipart/form-data">
+                <input type="hidden" name="path" value="{{ current_path }}">
+                <input type="file" name="file" required>
+                <button type="submit">Upload</button>
+            </form>
+            <form action="/create-folder" method="post">
+                <input type="hidden" name="path" value="{{ current_path }}">
+                <input type="text" name="name" placeholder="Folder Name" required>
+                <button type="submit">New Folder</button>
+            </form>
+            <form action="/create-file" method="post">
+                <input type="hidden" name="path" value="{{ current_path }}">
+                <input type="text" name="name" placeholder="File Name" required>
+                <button type="submit">New File</button>
+            </form>
+            <div style="margin-left: auto; font-size: 0.9em; color: #666;">
+                <strong>Functions:</strong> Upload, New Folder, New File, Download, Rename, Move, Delete, View
+            </div>
+        </div>
+
+        <table>
+            <thead>
+                <tr>
+                    <th>Name</th>
+                    <th>Type</th>
+                    <th>Size</th>
+                    <th>Actions</th>
+                </tr>
+            </thead>
+            <tbody>
+                {% for item in items %}
+                <tr {% if item.restricted %}style="background-color: #fff5f5; opacity: 0.7;" title="Restricted Path"{% endif %}>
+                    <td>
+                        {% if item.is_dir %}
+                            <span class="folder">
+                                📁 <a href="/?path={{ item.rel_path }}">{{ item.name }}</a>
+                            </span>
+                        {% else %}
+                            <span class="file">
+                                📄 <a href="/view/{{ item.rel_path }}">{{ item.name }}</a>
+                            </span>
+                        {% endif %}
+                        {% if item.restricted %} 🛡️{% endif %}
+                    </td>
+                    <td>{{ 'Folder' if item.is_dir else 'File' }}</td>
+                    <td>{{ item.size if not item.is_dir else '-' }}</td>
+                    <td>
+                        {% if item.name != '..' %}
+                        <a href="/download/{{ item.rel_path }}"><button>Download</button></a>
+                        
+                        <form action="/rename" method="post" style="display:inline;">
+                            <input type="hidden" name="path" value="{{ current_path }}">
+                            <input type="hidden" name="old_name" value="{{ item.name }}">
+                            <input type="text" name="new_name" placeholder="New name" class="rename-input" required>
+                            <button type="submit">Rename</button>
+                        </form>
+
+                        <form action="/move" method="post" style="display:inline;">
+                            <input type="hidden" name="path" value="{{ current_path }}">
+                            <input type="hidden" name="name" value="{{ item.name }}">
+                            <input type="text" name="dest_path" placeholder="Dest path (e.g. /tmp)" class="rename-input" required>
+                            <button type="submit">Move</button>
+                        </form>
+
+                        <form action="/delete" method="post" style="display:inline;" onsubmit="return confirm('Delete this?')">
+                            <input type="hidden" name="path" value="{{ current_path }}">
+                            <input type="hidden" name="name" value="{{ item.name }}">
+                            <button type="submit" class="btn-delete" {% if item.restricted %}disabled{% endif %}>Delete</button>
+                        </form>
+                        {% endif %}
+                    </td>
+                </tr>
+                {% endfor %}
+            </tbody>
+        </table>
+    </div>
+</body>
+</html>

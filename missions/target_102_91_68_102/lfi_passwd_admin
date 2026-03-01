@@ -1,0 +1,33 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>FUDMA CBT - Admin Panel</title>
+    <meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
+    <link rel="stylesheet" href="css/style.css">
+    <script>
+        function showError(message) {
+            if (message) {
+                alert(message);
+            }
+        }
+    </script>
+</head>
+<body onload="showError('')">
+    <div class="container">
+        <center>
+            <img src="../images/logo-front.png" class="logo" />
+            <h3>ADMIN PANEL</h3>
+            <div class="login-box">
+                <form id="frmUser" name="frmUser" method="post" action="/admin/login.php">
+                    <label>Username: *</label>
+                    <input name="username" type="text" id="username" size="35" maxlength="40" value="" />
+                    <label>Password: *</label>
+                    <input name="password" type="password" id="password" size="35" maxlength="16" />
+                    <input type="submit" name="submit" id="submit" value="LOGIN" class="btn" />
+                </form>
+            </div>
+            <p>Copyright &copy; 2025. Directorate of MIS, Federal University Dutsinma. All rights reserved.</p>
+        </center>
+    </div>
+</body>
+</html>

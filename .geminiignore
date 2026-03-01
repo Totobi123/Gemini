@@ -1,0 +1,10 @@
+# PROTECTED BRIDGE FILES - DO NOT TOUCH
+bridge.py
+venv/
+.env
+/etc/systemd/system/gemini-bridge.service
+
+# PORT PROTECTION (Instructions for the model)
+*port 18789*
+*port 18791*
+*port 18792*

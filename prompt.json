@@ -1,0 +1,5 @@
+{
+  "model": "deepseek-coder-v2:16b",
+  "prompt": "I'm auditing a PHP 8.3 application on Ubuntu. FFI (Foreign Function Interface) is enabled in phpinfo. The application has a registration form at /r/submit.php with these POST parameters: dept_id, subjects[] (array of IDs), staff_id, staff_name, staff_email, staff_phone. Submitting the form with valid-looking data results in a 302 Found redirect with success=Subject+combination+submitted+successfully. I suspect an INSERT query. How can I test for and exploit potential vulnerabilities here, especially considering FFI? Provide a curl command for a non-destructive Proof of Concept.",
+  "stream": false
+}

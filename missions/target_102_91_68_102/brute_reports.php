@@ -1,0 +1,1 @@
+<p><h3>Temporarily Disabled, tell student to check his portal later for his/her result<br /><em>or visit MIS Office only if necessary</em>!</h3></p>

@@ -1,0 +1,288 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>FUDMA POST-UTME CBT SUBJECT COMBINATION</title>
+    <style>
+        body {
+            background: #f4f6f5;
+            font-family: 'Segoe UI', sans-serif;
+            padding: 30px;
+        }
+
+        .container {
+            max-width: 600px;
+            margin: auto;
+            background: white;
+            padding: 30px;
+            border-radius: 12px;
+            box-shadow: 0 0 20px rgba(0,0,0,0.1);
+        }
+
+        h2 {
+            text-align: center;
+            color: #006400;
+            margin-bottom: 10px;
+        }
+
+        .info {
+            font-size: 14px;
+            color: #555;
+            background: #f0f8ff;
+            padding: 10px;
+            border-left: 5px solid #228B22;
+            margin-bottom: 20px;
+        }
+
+        label {
+            display: block;
+            margin-top: 15px;
+            font-weight: 600;
+            color: #333;
+        }
+
+        input[type="text"],
+        input[type="email"],
+        select {
+            width: 100%;
+            padding: 10px;
+            margin-top: 5px;
+            border: 1px solid #ccc;
+            border-radius: 6px;
+            box-sizing: border-box;
+        }
+
+        .checkbox-group {
+            margin-top: 10px;
+        }
+
+        .checkbox-group label {
+            font-weight: normal;
+        }
+
+        button {
+            margin-top: 25px;
+            width: 100%;
+            padding: 12px;
+            background: #228B22;
+            color: white;
+            font-size: 16px;
+            border: none;
+            border-radius: 6px;
+            cursor: pointer;
+        }
+
+        button:hover {
+            background: #1c691c;
+        }
+
+        .footer {
+            text-align: center;
+            margin-top: 20px;
+            font-size: 12px;
+            color: #888;
+        }
+
+        .grid-checkbox {
+            display: grid;
+            grid-template-columns: repeat(4, 1fr); /* 4 items per row */
+            gap: 8px 12px;
+            margin-top: 10px;
+        }
+
+        .checkbox-item label {
+            display: block;
+            background: #f9f9f9;
+            padding: 6px 8px;
+            border-radius: 5px;
+            border: 1px solid #ddd;
+        }
+    </style>
+</head>
+<body>
+
+
+<div class="container">
+    <h2>FUDMA POST-UTME CBT SUBJECT COMBINATION</h2>
+
+    <div class="info">
+        <strong>Instructions:</strong><br>
+        - The Post-UTME exam is marked over 100.<br>
+        - <strong>Use of English</strong> is compulsory and carries 40 marks.<br>
+        - Select exactly <strong>2 subjects</strong> related to your department. Each carries 30 marks.<br>
+    </div>
+
+    <form method="POST" action="submit.php" onsubmit="return validateSubjects();">
+
+        <label for="dept">Select Department:</label>
+        <select name="dept_id" required>
+            <option value="">-- Choose Department --</option>
+                            <option value="1">Mathematics</option>
+                            <option value="2">Science Education</option>
+                            <option value="3">Accounting</option>
+                            <option value="4">Business Management</option>
+                            <option value="5">Economics &amp; Development Studies</option>
+                            <option value="6">Geography and Regional Planning</option>
+                            <option value="7">Political Science</option>
+                            <option value="8">Sociology</option>
+                            <option value="9">English</option>
+                            <option value="10">History &amp; Strategic Studies</option>
+                            <option value="11">Chemistry</option>
+                            <option value="12">Biochemistry &amp; Molecular Biology</option>
+                            <option value="13">Biological Sciences</option>
+                            <option value="14">Physics</option>
+                            <option value="16">Fisheries and Aquaculture</option>
+                            <option value="17">Agricultural Economics</option>
+                            <option value="18">Animal Science</option>
+                            <option value="19">Agronomy</option>
+                            <option value="20">Forestry and Wild Life Management</option>
+                            <option value="21">Educational Foundations</option>
+                            <option value="22">Food Science and Technology</option>
+                            <option value="23">Preliminary Studies</option>
+                            <option value="24">Agricultural Extension and Rural Development</option>
+                            <option value="25">Computer Science &amp; IT</option>
+                            <option value="26">Microbiology</option>
+                            <option value="27">Special Education</option>
+                            <option value="28">Soil Science</option>
+                            <option value="29">Geology</option>
+                            <option value="30">Library and Information Science</option>
+                            <option value="31">Islamic Studies</option>
+                            <option value="32">Hausa</option>
+                            <option value="33">Arabic</option>
+                            <option value="34">Crop Protection</option>
+                            <option value="35">Human Kinetics and Health Education</option>
+                            <option value="37">Agricultural and Bio-Environmental Engineering</option>
+                            <option value="38">Civil Engineering</option>
+                            <option value="39">Electrical And Electronics Engineering</option>
+                            <option value="40">Mechanical Engineering</option>
+                            <option value="41">Chemical Engineering</option>
+                            <option value="42">Mechatronics Engineering</option>
+                            <option value="43">Human Anatomy</option>
+                            <option value="44">Human Physiology</option>
+                            <option value="45">Radiography</option>
+                            <option value="46">Medical Laboratory Sciences</option>
+                            <option value="47">Law (LL.B)</option>
+                            <option value="49">Medical and Surgical Nursing</option>
+                            <option value="50">Software Engineering </option>
+                            <option value="51">Cyber Security</option>
+                            <option value="52">Information Technology</option>
+                            <option value="53">Home Science Management</option>
+                            <option value="54">French</option>
+                            <option value="55">Directorate Of General Studies</option>
+                            <option value="56">Non-Teaching Staff  department</option>
+                            <option value="57">Plant Science and Biotechnology</option>
+                            <option value="58">Environmental Resources Management</option>
+                            <option value="59">Office of the Academic Secretary</option>
+                            <option value="60">Educational Management</option>
+                            <option value="61">Industrial Chemistry</option>
+                            <option value="63">Statistics</option>
+                            <option value="65">Geophysics</option>
+                            <option value="66">Educational Psychology and Counselling</option>
+                            <option value="67">Arts and Social Science Education</option>
+                            <option value="68">Mass Communication</option>
+                            <option value="69">Urban and Regional Planning</option>
+                            <option value="70">Library and Information Sciences</option>
+                            <option value="71">Managment Information System</option>
+                            <option value="72">Maternal and Child Health Nursing</option>
+                            <option value="73">Community Health Nursing</option>
+                            <option value="74">Mental Health and Psychiatric Nursing</option>
+                            <option value="76">Banking and Finance </option>
+                            <option value="77">Audiology</option>
+                            <option value="78">Public Administration</option>
+                            <option value="79">Demo Department</option>
+                    </select>
+
+        <label>Compulsory Subject:</label>
+        <input type="text" value="Use of English (Compulsory)" disabled>
+
+        <label>Choose 2 Other Subjects:</label>
+        <div class="checkbox-group grid-checkbox">
+                            <div class="checkbox-item">
+                    <label><input type="checkbox" name="subjects[]" value="1"> MATHEMATICS</label>
+                </div>
+                            <div class="checkbox-item">
+                    <label><input type="checkbox" name="subjects[]" value="2"> PHYSICS</label>
+                </div>
+                            <div class="checkbox-item">
+                    <label><input type="checkbox" name="subjects[]" value="3"> CHEMISTRY</label>
+                </div>
+                            <div class="checkbox-item">
+                    <label><input type="checkbox" name="subjects[]" value="4"> BIOLOGY</label>
+                </div>
+                            <div class="checkbox-item">
+                    <label><input type="checkbox" name="subjects[]" value="5"> ARABIC</label>
+                </div>
+                            <div class="checkbox-item">
+                    <label><input type="checkbox" name="subjects[]" value="6"> ISLAMIC STUDIES</label>
+                </div>
+                            <div class="checkbox-item">
+                    <label><input type="checkbox" name="subjects[]" value="7"> HAUSA</label>
+                </div>
+                            <div class="checkbox-item">
+                    <label><input type="checkbox" name="subjects[]" value="8"> LITERATURE IN ENGLISH</label>
+                </div>
+                            <div class="checkbox-item">
+                    <label><input type="checkbox" name="subjects[]" value="9"> ECONOMICS</label>
+                </div>
+                            <div class="checkbox-item">
+                    <label><input type="checkbox" name="subjects[]" value="10"> ACCOUNTING</label>
+                </div>
+                            <div class="checkbox-item">
+                    <label><input type="checkbox" name="subjects[]" value="11"> GOVERNMENT</label>
+                </div>
+                            <div class="checkbox-item">
+                    <label><input type="checkbox" name="subjects[]" value="12"> HISTORY</label>
+                </div>
+                            <div class="checkbox-item">
+                    <label><input type="checkbox" name="subjects[]" value="13"> FRENCH</label>
+                </div>
+                            <div class="checkbox-item">
+                    <label><input type="checkbox" name="subjects[]" value="14"> COMPUTER SCIENCE</label>
+                </div>
+                            <div class="checkbox-item">
+                    <label><input type="checkbox" name="subjects[]" value="15"> AGRICULTURE</label>
+                </div>
+                            <div class="checkbox-item">
+                    <label><input type="checkbox" name="subjects[]" value="16"> CIVIC EDUCATION</label>
+                </div>
+                            <div class="checkbox-item">
+                    <label><input type="checkbox" name="subjects[]" value="17"> GEOGRAPHY</label>
+                </div>
+                            <div class="checkbox-item">
+                    <label><input type="checkbox" name="subjects[]" value="18"> HUMAN KINETICS</label>
+                </div>
+                    </div>
+
+        <label>Staff ID:</label>
+        <input type="text" name="staff_id" required>
+
+        <label>Staff Name:</label>
+        <input type="text" name="staff_name" required>
+
+        <label>Staff Email:</label>
+        <input type="email" name="staff_email" required>
+
+        <label>Staff Phone:</label>
+        <input type="text" name="staff_phone" required>
+
+        <button type="submit">Submit</button>
+    </form>
+
+    <div class="footer">
+        &copy; 2026 Federal University Dutsin-Ma - DMIS
+    </div>
+</div>
+
+<script>
+    function validateSubjects() {
+        const checked = document.querySelectorAll('input[name="subjects[]"]:checked');
+        if (checked.length !== 2) {
+            alert("You must select exactly 2 subjects (excluding Use of English).");
+            return false;
+        }
+        return true;
+    }
+</script>
+
+</body>
+</html>
